@@ -1,0 +1,256 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww30040\viewh16420\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="en">\
+<head>\
+<meta charset="UTF-8">\
+<meta name="viewport" content="width=device-width, initial-scale=1.0">\
+<title>Birthday Surprise \uc0\u55357 \u56469 </title>\
+\
+<style>\
+body \{\
+  margin: 0;\
+  height: 100vh;\
+  background: linear-gradient(135deg, #fde2e4, #e2ece9);\
+  overflow: hidden;\
+  font-family: 'Poppins', sans-serif;\
+\}\
+\
+/* Ball */\
+.ball \{\
+  width: 70px;\
+  height: 70px;\
+  background: radial-gradient(circle, #ffb3c6, #ff8fab);\
+  border-radius: 50%;\
+  position: absolute;\
+  left: 50%;\
+  transform: translateX(-50%);\
+  top: -100px;\
+  animation: drop 2s ease-out forwards;\
+\}\
+\
+@keyframes drop \{\
+  0% \{ top: -100px; \}\
+  70% \{ top: 70%; \}\
+  85% \{ top: 60%; \}\
+  100% \{ top: 70%; \}\
+\}\
+\
+/* Click text */\
+#clickText \{\
+  display: none;\
+  position: absolute;\
+  top: 80%;\
+  width: 100%;\
+  text-align: center;\
+  font-size: 22px;\
+  cursor: pointer;\
+  color: #ff5d8f;\
+  animation: pulse 1.5s infinite;\
+\}\
+\
+@keyframes pulse \{\
+  0% \{ opacity: 1; \}\
+  50% \{ opacity: 0.6; \}\
+  100% \{ opacity: 1; \}\
+\}\
+\
+/* Popup */\
+.popup \{\
+  display: none;\
+  position: fixed;\
+  inset: 0;\
+  background: rgba(255, 240, 246, 0.9);\
+  justify-content: center;\
+  align-items: center;\
+  padding: 20px;\
+\}\
+\
+.popup-content \{\
+  background: #ffffff;\
+  color: #333;\
+  border-radius: 24px;\
+  padding: 25px;\
+  width: 100%;\
+  max-width: 360px;\
+  text-align: center;\
+  animation: pop 0.5s ease;\
+  position: relative;\
+\}\
+\
+@keyframes pop \{\
+  from \{ transform: scale(0); \}\
+  to \{ transform: scale(1); \}\
+\}\
+\
+h2 \{\
+  color: #ff5d8f;\
+\}\
+\
+/* Tree */\
+.tree \{\
+  position: relative;\
+  width: 140px;\
+  height: 220px;\
+  margin: 15px auto;\
+\}\
+\
+.trunk \{\
+  width: 18px;\
+  height: 90px;\
+  background: #b08968;\
+  position: absolute;\
+  bottom: 0;\
+  left: 50%;\
+  transform: translateX(-50%);\
+  border-radius: 10px;\
+\}\
+\
+/* Floating hearts */\
+.heart \{\
+  position: absolute;\
+  width: 18px;\
+  height: 18px;\
+  background: #ff8fab;\
+  transform: rotate(45deg);\
+  animation: floatUp 4s infinite ease-in;\
+  opacity: 0;\
+\}\
+\
+.heart::before,\
+.heart::after \{\
+  content: '';\
+  width: 18px;\
+  height: 18px;\
+  background: #ff8fab;\
+  border-radius: 50%;\
+  position: absolute;\
+\}\
+\
+.heart::before \{ top: -9px; left: 0; \}\
+.heart::after \{ left: -9px; top: 0; \}\
+\
+@keyframes floatUp \{\
+  0% \{ transform: translateY(0) scale(0) rotate(45deg); opacity: 0; \}\
+  30% \{ opacity: 1; \}\
+  100% \{ transform: translateY(-80px) scale(1) rotate(45deg); opacity: 0; \}\
+\}\
+\
+/* Confetti hearts */\
+.confetti \{\
+  position: fixed;\
+  width: 14px;\
+  height: 14px;\
+  background: #ffb3c6;\
+  transform: rotate(45deg);\
+  animation: confettiFall 3s linear forwards;\
+\}\
+\
+.confetti::before,\
+.confetti::after \{\
+  content: '';\
+  width: 14px;\
+  height: 14px;\
+  background: #ffb3c6;\
+  border-radius: 50%;\
+  position: absolute;\
+\}\
+\
+.confetti::before \{ top: -7px; left: 0; \}\
+.confetti::after \{ left: -7px; top: 0; \}\
+\
+@keyframes confettiFall \{\
+  0% \{ opacity: 1; transform: translateY(0) rotate(45deg); \}\
+  100% \{ opacity: 0; transform: translateY(100vh) rotate(360deg); \}\
+\}\
+\
+.timer \{\
+  margin-top: 15px;\
+  font-weight: bold;\
+  color: #555;\
+\}\
+</style>\
+</head>\
+\
+<body>\
+\
+<div class="ball"></div>\
+<div id="clickText">\uc0\u55356 \u57217  Click to see</div>\
+\
+<div class="popup" id="popup">\
+  <div class="popup-content">\
+    <h2>Happy Birthday to you \uc0\u10084 \u65039 </h2>\
+    <p>Born on <b>17 February 1999</b></p>\
+\
+    <div class="tree">\
+      <div class="trunk"></div>\
+      <div class="heart" style="left:40px; top:120px; animation-delay:0s"></div>\
+      <div class="heart" style="left:70px; top:110px; animation-delay:1s"></div>\
+      <div class="heart" style="left:55px; top:90px; animation-delay:2s"></div>\
+      <div class="heart" style="left:90px; top:100px; animation-delay:1.5s"></div>\
+    </div>\
+\
+    <div class="timer" id="timer"></div>\
+  </div>\
+</div>\
+\
+<audio id="music" loop>\
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_7c70d8a9a5.mp3" type="audio/mp3">\
+</audio>\
+\
+<script>\
+// Show click text\
+setTimeout(() => \{\
+  document.getElementById("clickText").style.display = "block";\
+\}, 2200);\
+\
+// Popup + music + confetti\
+document.getElementById("clickText").onclick = () => \{\
+  document.getElementById("popup").style.display = "flex";\
+  document.getElementById("music").play();\
+  createConfetti();\
+\};\
+\
+// Timer\
+const dob = new Date("1999-02-17T00:00:00");\
+\
+function updateTimer() \{\
+  const now = new Date();\
+  let diff = Math.floor((now - dob) / 1000);\
+\
+  const days = Math.floor(diff / 86400);\
+  diff %= 86400;\
+  const hours = Math.floor(diff / 3600);\
+  diff %= 3600;\
+  const minutes = Math.floor(diff / 60);\
+  const seconds = diff % 60;\
+\
+  document.getElementById("timer").innerHTML =\
+    `\uc0\u55356 \u57101  The world got luckier since<br>\
+     $\{days\} Days $\{hours\} Hours $\{minutes\} Minutes $\{seconds\} Seconds`;\
+\}\
+\
+setInterval(updateTimer, 1000);\
+updateTimer();\
+\
+// Confetti burst\
+function createConfetti() \{\
+  for (let i = 0; i < 30; i++) \{\
+    const confetti = document.createElement("div");\
+    confetti.className = "confetti";\
+    confetti.style.left = Math.random() * 100 + "vw";\
+    confetti.style.animationDelay = Math.random() * 1 + "s";\
+    document.body.appendChild(confetti);\
+    setTimeout(() => confetti.remove(), 3000);\
+  \}\
+\}\
+</script>\
+\
+</body>\
+</html>\
+}
